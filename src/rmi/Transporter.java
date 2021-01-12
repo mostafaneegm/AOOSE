@@ -18,10 +18,45 @@ public class Transporter extends user {
     public Transporter(int licensenumber) throws RemoteException{
         this.licensenumber = licensenumber;
     }
-    public Transporter(int licensenumber, int ID, String name, String email, String number) throws RemoteException{
-     super(ID,name,email,number);
-             this.licensenumber = licensenumber;             
+
+    public Transporter(int licensenumber, String name, String email, int phone) throws RemoteException {
+        super(name, email, phone);
+        this.licensenumber = licensenumber;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public int getPhone() {
+        return phone;
+    }
+
+    public void setPhone(int phone) {
+        this.phone = phone;
+    }
+
+    
 
     public int getLicensenumber() {
         return licensenumber;
@@ -30,50 +65,6 @@ public class Transporter extends user {
     public void setLicensenumber(int licensenumber) {
         this.licensenumber = licensenumber;
     }
-    public int getID() throws RemoteException {​​
-return ID;
-}​​
-
-
-
-public void setID(int ID) throws RemoteException {​​
-this.ID = ID;
-}​​
-
-
-
-public String getName()throws RemoteException {​​
-return name;
-}​​
-
-
-
-public void setName(String name) throws RemoteException {​​
-this.name = name;
-}​​
-
-
-
-public String getEmail() throws RemoteException {​​
-return email;
-}​​
-
-
-
-public void setEmail(String email) throws RemoteException {​​
-this.email = email;
-}​​
-
-
-
-public String getNumber() throws RemoteException {​​
-return number;
-}​​
-
-
-
-public void setNumber(String number)throws RemoteException {​​
-this.number = number;
-}​​
+    
     
 }

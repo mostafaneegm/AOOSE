@@ -7,68 +7,72 @@ package rmi;
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
+import java.util.ArrayList;
 
 /**
  *
- * @author Lenovo
+ * @author shrou
  */
-public class user extends UnicastRemoteObject implements user_interface {
-    private int ID;
-    private String name;
-    private String email;
-    private String number;
-
+public class user extends UnicastRemoteObject implements user_interface 
+{
+    int id;
+    String name;
+    String email;
+    int phone;
+  
+    
+   
     public user()throws RemoteException {
     }
-    public user(int ID, String name, String email, String number) throws RemoteException {
-        this.ID = ID;
+
+    public user(int id, String name, String email, int phone)throws RemoteException {
+        this.id = id;
         this.name = name;
         this.email = email;
-        this.number = number;
+        this.phone = phone;
     }
 
-    public user(String name, String email, String number)throws RemoteException  {
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public user(String name, String email, int phone)throws RemoteException {
         this.name = name;
         this.email = email;
-        this.number = number;
+        this.phone = phone;
     }
 
-    public int getID() throws RemoteException {
-        return ID;
-    }
-
-    public void setID(int ID) throws RemoteException {
-        this.ID = ID;
-    }
-
-    public String getName()throws RemoteException  {
+    public String getName()throws RemoteException {
         return name;
     }
 
-    public void setName(String name) throws RemoteException {
+    public void setName(String name) throws RemoteException{
         this.name = name;
     }
 
-    public String getEmail() throws RemoteException {
+    public String getEmail() throws RemoteException{
         return email;
     }
 
-    public void setEmail(String email) throws RemoteException {
+    public void setEmail(String email)throws RemoteException {
         this.email = email;
     }
 
-    public String getNumber() throws RemoteException {
-        return number;
+    public int getPhone()throws RemoteException {
+        return phone;
     }
 
-    public void setNumber(String number)throws RemoteException  {
-        this.number = number;
+    public void setPhone(int phone) throws RemoteException{
+        this.phone = phone;
     }
 
     @Override
     public String toString() {
-        return "user{" + "ID=" + ID + ", name=" + name + ", email=" + email + ", number=" + number + '}';
+        return "user{" + "id=" + id + ", name=" + name + ", email=" + email + ", phone=" + phone + '}';
     }
-    
-    
+
 }
