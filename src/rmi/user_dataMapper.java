@@ -5,10 +5,17 @@
  */
 package rmi;
 
+import java.rmi.Remote;
+import java.rmi.RemoteException;
+
 /**
  *
  * @author Lenovo
  */
-public interface user_dataMapper {
-    
+public interface user_dataMapper extends Remote{
+     void insert (user u)throws RemoteException;
+    void update (user u)throws RemoteException;
+    void delete (user u)throws RemoteException;
+     void view(user u)throws RemoteException;
+    user get_user(int id)throws RemoteException;
 }

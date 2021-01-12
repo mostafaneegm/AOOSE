@@ -5,10 +5,12 @@
  */
 package rmi;
 
+import java.rmi.Remote;
+
 /**
  *
  * @author Lenovo
  */
-public  abstract class user_data_mapper implements user_dataMapper{
+public interface account_interface extends Remote {
     
 }

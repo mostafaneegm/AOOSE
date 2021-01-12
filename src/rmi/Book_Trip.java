@@ -53,5 +53,8 @@ public class Book_Trip {
     public void setYear(String year) {
         this.year = year;
     }
+    public void book(String location,String category){
     
+    
+    }
 }
