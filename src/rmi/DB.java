@@ -23,26 +23,31 @@ import org.bson.Document;
 public class DB {
     private MongoClient client;
     private MongoDatabase database;
-    private MongoCollection<Document> collection;
+    private MongoCollection<Document> Trips;
+    private MongoCollection<Document> BookTrips;
+    private MongoCollection<Document> user;
+    private MongoCollection<Document> transporter;
     private Gson gson = new Gson();
 
 
 
     public DB() {
-       
-        try{
+      
         Logger mongoLogger = Logger.getLogger("org.mongodb.driver");
         mongoLogger.setLevel(Level.SEVERE);
-        } catch(Exception e){
-        
-        
-        }
-        
+
         client = new MongoClient();
         database = client.getDatabase("TCMS");
-        collection = database.getCollection("Trips"); 
-    
+        Trips = database.getCollection("Trips"); 
+        BookTrips = database.getCollection("BookTrips"); 
+        user = database.getCollection("user"); 
+        transporter = database.getCollection("Transporter"); 
     }
   
+     public void insertBookTrip(Book s) {
+        collection.insertOne(Document.parse(gson.toJson(s)));
+        System.out.println("Student inserted.");
+    }
+    
 
 }

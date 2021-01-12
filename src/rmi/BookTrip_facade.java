@@ -16,7 +16,7 @@ public class BookTrip_facade extends UnicastRemoteObject implements FacadeInterf
     Book_Trip bt;
     
     public BookTrip_facade() throws RemoteException {
-        bt= new Book_Trip("", "", "","");
+        bt= new Book_Trip("", "", "","",0);
     }
     
     
