@@ -19,10 +19,7 @@ public class TCMSServer {
      */
     public static void main(String[] args) throws RemoteException {
         
-        Trips t  = new Trips(1,"Safari",1500,"Sinai","Advernture");
-        
-        DB db = new DB();
-        db.deleteTrip(1);
+       
         
     }
     

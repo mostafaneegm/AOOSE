@@ -29,7 +29,6 @@ public class proxy extends UnicastRemoteObject implements SafariTripInterface{
         this.location = location;
         this.description = description;
     }
-    
     public proxy () throws RemoteException{}
 
     @Override
@@ -51,8 +50,11 @@ public class proxy extends UnicastRemoteObject implements SafariTripInterface{
        
         System.out.println("updated");
     }
+        st.edit_trips(ID, price, location, view, reservation_number);
+        
+        System.out.println("updated");
     
-
+    }
     
   
   
