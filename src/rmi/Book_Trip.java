@@ -6,13 +6,14 @@
 package rmi;
 
 import java.rmi.RemoteException;
+import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 
 /**
  *
  * @author Lenovo
  */
-public class Book_Trip {
+public class Book_Trip extends UnicastRemoteObject implements Book_trip_interface{
     private String TripName;
     private String day;
     private String month;
@@ -29,6 +30,8 @@ public class Book_Trip {
     public Book_Trip()throws RemoteException{}
     
 ArrayList <Book_Trip> bt=new ArrayList<>();
+
+    
     
 public int getID() throws RemoteException{
         return ID;
@@ -70,25 +73,7 @@ public int getID() throws RemoteException{
         this.year = year;
     }
     
-    public void booking(String tripname,String day,String month, String year,int ID) throws RemoteException{
-        Book_Trip book=new Book_Trip();
-            
-        if(bt.isEmpty()){
-             
-            book.setID(ID);
-            
-        } else{
-            int x=bt.size();
-            book.setID(x+1);
-             }
-   
-            book.setTripName(tripname);
-            book.setDay(day);
-            book.setMonth(month);
-            book.setYear(year);
-            book.setID(ID);
-            bt.add(book);
-    }
+    
     
     public void deleteBooking(int ID)throws RemoteException{
     
@@ -128,6 +113,28 @@ public int getID() throws RemoteException{
     
     }
     }
+
+    @Override
+    public void booking(String TripName, String day, String month, String year) throws RemoteException {
+       Book_Trip book=new Book_Trip();
+            
+        if(bt.isEmpty()){
+             
+            book.setID(ID);
+            
+        } else{
+            int x=bt.size();
+            book.setID(x+1);
+             }
+   
+            book.setTripName(TripName);
+            book.setDay(day);
+            book.setMonth(month);
+            book.setYear(year);
+            book.setID(ID);
+            bt.add(book);
+    }
+    }
     
     
-}
+

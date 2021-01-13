@@ -5,11 +5,13 @@
  */
 package rmi;
 
+import java.rmi.Remote;
+
 /**
  *
  * @author hp
  */
-public interface Transportation_interface {
+public interface Transportation_interface extends Remote{
     public void viewTransportation();
     public void addtransporter(int id,String type, String location, int duration);
     public void deleteTransportaion(int id);

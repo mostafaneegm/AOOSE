@@ -4,13 +4,14 @@
  * and open the template in the editor.
  */
 package rmi;
-
 import java.rmi.Remote;
+import java.rmi.RemoteException;
 
 /**
  *
  * @author Lenovo
  */
 public interface Book_trip_interface extends Remote {
-    public void booking(String TripName, String day, String month, String year);
+    
+    public void booking(String TripName, String day, String month, String year) throws RemoteException;
 }
