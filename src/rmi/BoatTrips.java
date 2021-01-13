@@ -20,6 +20,9 @@ public class BoatTrips extends Trips{
         this.ReservationsNumber = ReservationsNumber;
     }
 
+    public BoatTrips() throws RemoteException{
+    }
+
     public int getReservationsNumber() {
         return ReservationsNumber;
     }
