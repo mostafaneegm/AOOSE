@@ -19,13 +19,21 @@ public class Transporter extends user {
         this.licensenumber = licensenumber;
     }
 
-    public Transporter(int licensenumber, String name, String email, int phone) throws RemoteException {
-        super(name, email, phone);
+    public Transporter(int licensenumber, String name, String email, int phone, String userType) throws RemoteException {
+        super(name, email, phone, userType);
         this.licensenumber = licensenumber;
     }
 
     public int getId() {
         return id;
+    }
+
+    public String getUserType() {
+        return userType;
+    }
+
+    public void setUserType(String userType) {
+        this.userType = userType;
     }
 
     public void setId(int id) {

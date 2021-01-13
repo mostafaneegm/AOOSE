@@ -7,6 +7,7 @@ package rmi;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;
+import java.util.ArrayList;
 
 /**
  *
@@ -16,6 +17,7 @@ public interface user_dataMapper extends Remote{
      void insert (user u)throws RemoteException;
     void update (user u)throws RemoteException;
     void delete (user u)throws RemoteException;
-     void view(user u)throws RemoteException;
-    user get_user(int id)throws RemoteException;
+     void view(ArrayList<user>u)throws RemoteException;
+    void get_user(user id)throws RemoteException;
+    void login(String username, String password) throws RemoteException;
 }

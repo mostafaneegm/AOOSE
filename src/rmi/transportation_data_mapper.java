@@ -35,13 +35,14 @@ public class transportation_data_mapper implements transportation_datamapper {
 
     @Override
     public void delete(Transportation t) {
-        db.deleteTransportation(t);
+      db.deleteTransportation(t);
     }
 
     @Override
     public void view() {
         db.ViewAllTransportation();
     }
+
 
 
      

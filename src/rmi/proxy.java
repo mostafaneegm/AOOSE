@@ -38,15 +38,20 @@ public class proxy extends UnicastRemoteObject implements SafariTripInterface{
     st = new SafariTrips();
     }
     st.PostTrip(ReservationsNumber, ID, price, location, description);
-    System.out.print("proxy");
+    System.out.print("posted");
     }
 
     @Override
     public void EditPost(int ID, int price, String location, String view, int reservation_number) throws RemoteException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if(st == null){
+        st = new SafariTrips();
+        
     }
+        st.edit_trips(ID, price, location, view, reservation_number);
+        
+        System.out.println("updated");
     
-
+    }
     
   
   

@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import static org.junit.Assert.assertNotNull;
 import org.junit.Before;
 import org.junit.Test;
+import rmi.DB;
 
 /**
  *
@@ -21,9 +22,10 @@ public class posttrip {
     @Test
     public void testposttrips() throws RemoteException{
     
-    Trips t = new Trips();
-    t.post_trips("safari", 2000, "Sinai", 10);
-    assertNotNull(t);
+     Trips t  = new Trips(1,"Safari",1500,"Sinai","Advernture");
+        
+        DB db = new DB();
+        db.insertTrip(t);
     
     
     }
