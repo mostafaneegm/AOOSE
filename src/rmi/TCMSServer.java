@@ -18,12 +18,12 @@ public class TCMSServer {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws RemoteException {
-        // TODO code application logic here
-        DB db=new DB();
-    
-        Book_Trip bk = new Book_Trip("boat", "12", "12","2020",1);
-        db.BookTrip(bk);
-      
+        
+        Trips t  = new Trips(1,"Safari",1500,"Sinai","Advernture");
+        
+        DB db = new DB();
+        db.deleteTrip(t);
+        
     }
     
 }

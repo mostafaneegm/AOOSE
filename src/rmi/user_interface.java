@@ -5,10 +5,15 @@
  */
 package rmi;
 
+import java.rmi.Remote;
+import java.rmi.RemoteException;
+
 /**
  *
  * @author Lenovo
  */
-public interface user_interface {
-    
+public interface user_interface extends Remote {
+  
+    public void signup(String type,String username,String name, String email, int phone, String password,int licensenumber)throws RemoteException;
+    public void editprofile(String type,String username,String name, String email, int phone, String password,int licensenumber)throws RemoteException;
 }

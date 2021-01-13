@@ -20,15 +20,18 @@ public class ReligiousTrips extends Trips{
         this.ReservationsNumber = ReservationsNumber;
     }
 
-    public int getReservationsNumber() {
+    public ReligiousTrips() throws RemoteException {}
+    
+
+    public int getReservationsNumber()throws RemoteException {
         return ReservationsNumber;
     }
 
-    public void setReservationsNumber(int ReservationsNumber) {
+    public void setReservationsNumber(int ReservationsNumber)throws RemoteException {
         this.ReservationsNumber = ReservationsNumber;
     }
 
-    public int getID() {
+    public int getID(){
         return ID;
     }
 

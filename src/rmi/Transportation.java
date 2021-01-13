@@ -5,6 +5,8 @@
  */
 package rmi;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author hp
@@ -13,20 +15,30 @@ public class Transportation extends user {
     private int ID;
     private String transporttype;
     private int transportduration;
-    private String location;
+    private String transportlocation;
 
     public Transportation(int ID, String transporttype, int transportduration, String location) {
         this.ID = ID;
         this.transporttype = transporttype;
         this.transportduration = transportduration;
-        this.location = location;
+        this.transportlocation = location;
     }
+        ArrayList <Transportation> t = new ArrayList <Transportation> ();
 
-    public int getID() {
+
+    public int getTransportID() {
         return ID;
     }
 
-    public void setID(int ID) {
+    public ArrayList<Transportation> getT() {
+        return t;
+    }
+
+    public void setT(ArrayList<Transportation> t) {
+        this.t = t;
+    }
+
+    public void setTransportID(int ID) {
         this.ID = ID;
     }
 
@@ -46,12 +58,12 @@ public class Transportation extends user {
         this.transportduration = transportduration;
     }
 
-    public String getLocation() {
-        return location;
+    public String getTransportLocation() {
+        return transportlocation;
     }
 
-    public void setLocation(String location) {
-        this.location = location;
+    public void setTransportLocation(String location) {
+        this.transportlocation = location;
     }
     
     

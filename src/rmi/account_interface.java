@@ -6,11 +6,12 @@
 package rmi;
 
 import java.rmi.Remote;
+import java.rmi.RemoteException;
 
 /**
  *
  * @author Lenovo
  */
-public interface account_interface extends Remote {
-    
+public interface account_interface extends Remote  {
+      public void login(String username, String password)throws RemoteException;
 }
