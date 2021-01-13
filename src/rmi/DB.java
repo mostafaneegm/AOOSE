@@ -160,7 +160,7 @@ public class DB {
     }
     //delete
       
-    public void deleteTransportation(int ID){
+    public void deleteTransportation(Transportation ID){
         transportation.deleteOne(Filters.eq("ID",ID));
     }
     //update

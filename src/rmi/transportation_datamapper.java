@@ -15,7 +15,7 @@ public interface transportation_datamapper {
     public void insert (Transportation t);
     public void update (Transportation t);
     public void delete (Transportation t);
-    public void view (ArrayList<Transportation> t);
+    public void view ();
     
     
 }
