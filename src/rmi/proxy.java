@@ -29,7 +29,6 @@ public class proxy extends UnicastRemoteObject implements SafariTripInterface{
         this.location = location;
         this.description = description;
     }
-    
     public proxy () throws RemoteException{}
 
     @Override

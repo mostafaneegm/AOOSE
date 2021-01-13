@@ -249,4 +249,31 @@ public class user extends UnicastRemoteObject implements user_interface
 //    }
 
 }
+
+    @Override
+    public void deleteUser(int id) throws RemoteException {
+        
+        user us =new user ();
+        
+        if(us.getId() == id){
+        
+        u.remove(us);
+        
+        }
+        System.out.println("user not found");
+           
+   }
+
+    @Override
+    public void viewuser(ArrayList<user> u) throws RemoteException {
+        
+        
+        for(int i = 0; i<u.size();i++){
+            System.out.println(u.get(i));
+        
+        }
+
+        
+
+    }
 }

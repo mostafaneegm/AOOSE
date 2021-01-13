@@ -19,5 +19,5 @@ public interface Trips_interface extends Remote {
 
     public void edit_trips(int ID, int price, String location, String view, int reservation_number) throws RemoteException;
      public void ViewAllTrips (ArrayList<Trips> trip);
-       public void deleteTrip (Trips t);
+       public void deleteTrip (int ID);
 }
