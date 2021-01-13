@@ -15,6 +15,7 @@ import com.mongodb.MongoClient;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.model.Filters;
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -44,10 +45,59 @@ public class DB {
         transporter = database.getCollection("Transporter"); 
     }
   
-     public void insertBookTrip(Book s) {
-        collection.insertOne(Document.parse(gson.toJson(s)));
-        System.out.println("Student inserted.");
-    }
+    
+    
+    
+    ///////////////////////bookTrips/////////////
+     public void BookTrip(Book_Trip book) {
+        BookTrips.insertOne(Document.parse(gson.toJson(book)));
+        System.out.println("trip have been booked");
+     }
+     
+
+     
+     public void updateBookin(Book_Trip book) throws RemoteException{
+       Document doc = Document.parse(gson.toJson(book));
+         BookTrips.replaceOne(Filters.eq("ID", book.getID()), doc);
+         BookTrips.replaceOne(Filters.eq("day", book.getDay()), doc);
+         BookTrips.replaceOne(Filters.eq("month", book.getMonth()), doc);
+         BookTrips.replaceOne(Filters.eq("year", book.getYear()), doc);
+         BookTrips.replaceOne(Filters.eq("tripName", book.getTripName()), doc);
+          System.out.println("booking have been updated");
+     }
+     
+     public void deleteBook(Book_Trip ID){
+     BookTrips.deleteOne(Filters.eq("ID",ID));
+     System.out.println("the booked trip have been deleted");
+        }
+   
+     public ArrayList<Book_Trip> viewbookedTrips(){
+        ArrayList<Book_Trip> book = new ArrayList();
+        ArrayList<Document> docs = BookTrips.find().into(new ArrayList<Document>());
+        for (int i = 0; i < docs.size(); i++){
+        book.add(gson.fromJson(docs.get(i).toJson(), Book_Trip.class));
+        }
+        return book;
+    
+}
+
+
+    public ArrayList<Book_Trip> viewTripByID(int id){
+        
+        ArrayList<Book_Trip> book = new ArrayList();
+        
+        ArrayList<Document> docs = Trips.find(Filters.eq("BookTrips.ID", id)).into(new ArrayList<Document>());
+        
+        for (int i = 0; i < docs.size(); i++){
+        book.add(gson.fromJson(docs.get(i).toJson(), Book_Trip.class));
+                    }
+        return book;
+}
+
+///////////////////////////////user//////////////////////
+    
     
 
+
+     
 }

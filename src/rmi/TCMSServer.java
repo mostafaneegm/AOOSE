@@ -5,6 +5,7 @@
  */
 package rmi;
 
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 /**
@@ -16,9 +17,13 @@ public class TCMSServer {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws RemoteException {
         // TODO code application logic here
-        
+        DB db=new DB();
+    
+        Book_Trip bk = new Book_Trip("boat", "12", "12","2020",1);
+        db.BookTrip(bk);
+      
     }
     
 }
