@@ -25,18 +25,22 @@ public class transportation_data_mapper implements transportation_datamapper {
     }
 
     @Override
-    public void update(Transporter t) {
-        db.updateTransportation(t);
+    public void update(Transportation t) {
+        try {
+            db.updateTransportation(t);
+        } catch (RemoteException ex) {
+            Logger.getLogger(transportation_data_mapper.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @Override
-    public void delete(Transporter t) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void delete(Transportation t) {
+        db.deleteTransportation(t);
     }
 
     @Override
-    public void view(ArrayList<Transporter> t) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void view() {
+        db.ViewAllTransportation();
     }
 
 
