@@ -10,6 +10,8 @@ import java.rmi.server.RemoteRef;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 import java.rmi.server.UnicastRemoteObject;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 /**
@@ -342,6 +344,30 @@ public void remove_trips(int ID) throws RemoteException{
     }
 
 }
+
+    @Override
+    public void ViewAllTrips() {
+       for(int i = 0; i<t.size(); i++){
+System.out.println(t.get(i));
+}
+    
+    }
+
+    @Override
+    public void deleteTrip(int ID) {
+   
+
+        try {
+         Trips   ts = new Trips();
+         if(ts.getID()== ID){
+t.remove(ID);
+}
+        } catch (RemoteException ex) {
+            Logger.getLogger(Trips.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+
+    }
 
 
 }
