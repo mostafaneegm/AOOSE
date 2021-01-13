@@ -22,7 +22,7 @@ public class TCMSServer {
         Trips t  = new Trips(1,"Safari",1500,"Sinai","Advernture");
         
         DB db = new DB();
-        db.deleteTrip(t);
+        db.deleteTrip(1);
         
     }
     
