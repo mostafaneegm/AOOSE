@@ -12,6 +12,7 @@ import java.rmi.registry.Registry;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import rmi.Book_trip_interface;
+import rmi.SafariTripInterface;
 
 /**
  *
@@ -28,6 +29,8 @@ public class TCMSClient {
             Registry registry = LocateRegistry.getRegistry(1099);
             
                Book_trip_interface book = (Book_trip_interface) registry.lookup("bookTrips");
+               SafariTripInterface safari = (SafariTripInterface) registry.lookup("safa");
+
                
         } catch (RemoteException ex) {
             Logger.getLogger(TCMSClient.class.getName()).log(Level.SEVERE, null, ex);
