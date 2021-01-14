@@ -21,7 +21,7 @@ public class Transportation extends UnicastRemoteObject implements Transportatio
     private int transportduration;
     private String transportlocation;
 
-    public Transportation(int ID, String transporttype, int transportduration, String location) {
+    public Transportation(int ID, String transporttype, int transportduration, String location) throws RemoteException{
         this.ID = ID;
         this.transporttype = transporttype;
         this.transportduration = transportduration;
@@ -72,13 +72,27 @@ public Transportation () throws RemoteException{}
 
     @Override
     public void viewTransportation() {
+            DB db = new DB();
+            db.ViewAllTransportation();
+          
+
           for(int i = 0; i<t.size(); i++){
-System.out.println(t.get(i));
+        System.out.println(t.get(i));
 }
     }
 
     @Override
-    public void addtransporter(int id, String type, String location, int duration) {
+    public void addtransportation(int id, String type, String location, int duration) {
+      
+        try {
+            Transportation tran = new Transportation();
+              DB db = new DB();
+        db.insertTransportation(tran);
+        
+        } catch (RemoteException ex) {
+            Logger.getLogger(Transportation.class.getName()).log(Level.SEVERE, null, ex);
+        }
+      
         try {
             Transportation tran=new Transportation();
             tran.setTransportID(id);
@@ -97,6 +111,16 @@ System.out.println(t.get(i));
     public void deleteTransportaion(int id) {
         try {
             Transportation tran=new Transportation();
+            DB db = new DB();
+            db.deleteTransportation(tran);
+            
+        } catch (RemoteException ex) {
+            Logger.getLogger(Transportation.class.getName()).log(Level.SEVERE, null, ex);
+        }
+       
+        
+        try {
+            Transportation tran=new Transportation();
             if(tran.getTransportID()==id){
             t.remove(tran);
             
@@ -108,6 +132,16 @@ System.out.println(t.get(i));
 
     @Override
     public void updateTransportation(int id, String type, String location, int duration) {
+       
+        try {
+            Transportation tran=new Transportation();
+            DB db= new DB();
+            db.updateTransportation(tran);
+        } catch (RemoteException ex) {
+            Logger.getLogger(Transportation.class.getName()).log(Level.SEVERE, null, ex);
+        }
+          
+        
         for(int i = 0;i<t.size();i++){
             if(t.get(i).getTransportID()== id){
                 Transportation tran=( Transportation)t.get(i);
@@ -119,6 +153,7 @@ System.out.println(t.get(i));
             }
         }
     }
+
     
     
 }

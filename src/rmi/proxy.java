@@ -33,6 +33,8 @@ public class proxy extends UnicastRemoteObject implements SafariTripInterface{
 
     @Override
     public void PostTrip(int ReservationsNumber, int ID, int price, String location, String description) throws RemoteException {
+        
+        
     if(st == null){
     st = new SafariTrips();
     }
@@ -41,12 +43,16 @@ public class proxy extends UnicastRemoteObject implements SafariTripInterface{
     }
 
     @Override
-    public void EditPost(int ID, int price, String location, String view, int reservation_number) throws RemoteException {
+    public void EditPost(int ID, int price, String location, int reservation_number) throws RemoteException {
+       
+        SafariTrips safa = new SafariTrips();
+        DB db= new DB();
+        db.updateTrip(safa);
         if(st == null){
         st = new SafariTrips();
        
     }
-        st.edit_trips(ID, price, location, reservation_number);
+        st.EditPost(ID, price, location, reservation_number);
        
         System.out.println("updated");
     }

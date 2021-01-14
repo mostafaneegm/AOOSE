@@ -18,8 +18,8 @@ public interface Trips_interface extends Remote {
     )throws RemoteException;
 
     public void edit_trips(int ID, int price, String location, int reservation_number,String category) throws RemoteException;
-     public void ViewAllTrips ();
-       public void deleteTrip (int ID);
+     public void ViewAllTrips ()throws RemoteException;
+       public void deleteTrip (int ID)throws RemoteException;
        
        
     public  ArrayList<String> view_safari()throws RemoteException;

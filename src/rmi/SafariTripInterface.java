@@ -15,7 +15,7 @@ import java.rmi.RemoteException;
 public interface SafariTripInterface extends Remote {
     
 public void PostTrip(int ReservationsNumber, int ID, int price, String location, String description) throws RemoteException;
-public void EditPost(int ID, int price, String location, String view, int reservation_number) throws RemoteException;
+public void EditPost(int ID, int price, String location, int reservation_number) throws RemoteException;
 
 
 }

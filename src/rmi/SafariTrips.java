@@ -80,6 +80,10 @@ public class SafariTrips extends Trips implements SafariTripInterface {
 
     @Override
     public void PostTrip(int ReservationsNumber, int ID, int price, String location, String description) throws RemoteException {
+     SafariTrips safa=new SafariTrips();
+        DB db= new DB();
+      db.insertTrip(safa);
+        
         SafariTrips st = new SafariTrips();
         ReligiousTrips rt = new ReligiousTrips();
         CultureTrips ct = new CultureTrips();
@@ -156,8 +160,13 @@ public class SafariTrips extends Trips implements SafariTripInterface {
     }
 
     @Override
-    public void EditPost(int ID, int price, String location, String view, int reservation_number) throws RemoteException {
-         for(int i = 0;i<t.size();i++){
+    public void EditPost(int ID, int price, String location, int reservation_number) throws RemoteException {
+        
+        SafariTrips safa =new SafariTrips();
+        DB db =new DB();
+        db.updateTrip(safa);
+        
+        for(int i = 0;i<t.size();i++){
             if(t.get(i).getID()== ID){
                 if(t.get(i).getCategory()== "SafariTrips"){
                     

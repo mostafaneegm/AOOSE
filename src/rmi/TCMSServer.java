@@ -24,22 +24,22 @@ public class TCMSServer {
     public static void main(String[] args) throws RemoteException, AlreadyBoundException  {
        
         Book_trip_interface book =  new Book_Trip();
-        account_interface acc=new account();
-        FacadeInterface facadeinter =new BookTrip_facade();
-        SafariTripInterface safari=new SafariTrips();
-        Transportation_interface trans= new Transportation();
-        Trips_interface trips= new Trips();
-        user_interface user=new user();
+//        account_interface acc=new account();
+//        FacadeInterface facadeinter =new BookTrip_facade();
+//        SafariTripInterface safari=new SafariTrips();
+//        Transportation_interface trans= new Transportation();
+//        Trips_interface trips= new Trips();
+//        user_interface user=new user();
         
           Registry registry = LocateRegistry.createRegistry(1099);
           
        registry.bind("bookTrips", book);
-       registry.bind("account", acc);
-       registry.bind("facade", facadeinter);
-       registry.bind("safa", safari);
-       registry.bind("transaction", trans);
-       registry.bind("trip", trips);
-       registry.bind("user", user);
+//       registry.bind("account", acc);
+//       registry.bind("facade", facadeinter);
+//       registry.bind("safa", safari);
+//       registry.bind("transaction", trans);
+//       registry.bind("trip", trips);
+//       registry.bind("user", user);
        
             System.out.println("My classes are ready...");  
         

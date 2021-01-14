@@ -50,7 +50,11 @@ public class account extends UnicastRemoteObject implements account_interface{
 
     @Override
     public void login(String username, String password) throws RemoteException {
-      for (int i=0; i<acc.size();i++){
+   
+     DB db = new DB();
+     db.signin(username, password);
+        
+        for (int i=0; i<acc.size();i++){
           if (acc.get(i).getUsername()==username){
               if(acc.get(i).getPassword()==password){
                   System.out.println("welcome");

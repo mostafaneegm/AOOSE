@@ -76,6 +76,10 @@ public int getID() throws RemoteException{
     
     
     public void deleteBooking(int ID)throws RemoteException{
+    Book_Trip book = new Book_Trip();
+        DB db= new DB();
+        
+    db.deleteBook(book);
     
     if(getID()==ID){
     bt.remove(ID);
@@ -86,7 +90,11 @@ public int getID() throws RemoteException{
     }
     
     public void viewbookedTrip(int ID)throws RemoteException{
-    if(getID()==ID){
+   
+               DB db= new DB();
+               db.viewbookedTrips();
+               
+        if(getID()==ID){
     getTripName();
     getDay();
     getMonth();
@@ -98,7 +106,13 @@ public int getID() throws RemoteException{
     
     }
     public void editbooking(int ID,String tripname,String day,String month, String year)throws RemoteException{
-    for (int i=0; i<bt.size();i++)
+    
+        Book_Trip bo =new Book_Trip();
+         DB db= new DB();
+    db.updateBookin(bo);
+        
+        
+        for (int i=0; i<bt.size();i++)
     {
     if (bt.get(i).getID()==ID){
     Book_Trip book= (Book_Trip)bt.get(i);
@@ -113,10 +127,15 @@ public int getID() throws RemoteException{
     
     }
     }
+    
+   
 
     @Override
     public void booking(String TripName, String day, String month, String year) throws RemoteException {
-       Book_Trip book=new Book_Trip();
+      DB db=new DB();
+
+        Book_Trip book=new Book_Trip();
+            db.BookTrip(book);
             
         if(bt.isEmpty()){
              

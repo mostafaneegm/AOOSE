@@ -12,6 +12,7 @@ import static org.junit.Assert.assertNotNull;
 import org.junit.Before;
 import org.junit.Test;
 import rmi.DB;
+import rmi.Transportation;
 
 /**
  *
@@ -26,7 +27,7 @@ public class posttrip {
         
         DB db = new DB();
         db.insertTrip(t);
-    
+
     
     }
     

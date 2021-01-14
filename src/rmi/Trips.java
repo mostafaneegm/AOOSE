@@ -112,6 +112,11 @@ public class Trips  extends UnicastRemoteObject implements Trips_interface, ROI_
     @Override
     public void post_trips(String category,int ID, int price, String location, int reservation_number      
     ) throws RemoteException {
+        
+        Trips trip =new Trips();
+        DB db =new DB();
+        db.insertTrip(trip);
+        
         SafariTrips st = new SafariTrips();
         ReligiousTrips rt = new ReligiousTrips();
         CultureTrips ct = new CultureTrips();
@@ -190,6 +195,12 @@ public class Trips  extends UnicastRemoteObject implements Trips_interface, ROI_
 
     @Override
     public void edit_trips(int ID, int price, String location,  int reservation_number, String category) throws RemoteException {
+       Trips trip = new Trips ();
+       DB db = new DB();
+       db.updateTrip(trip);
+        
+        
+        
         for(int i = 0;i<t.size();i++){
             if(t.get(i).getID()== ID){
                 if(t.get(i).getCategory()== "SafariTrips"){
@@ -256,6 +267,11 @@ public class Trips  extends UnicastRemoteObject implements Trips_interface, ROI_
     
     public void search_trips(int ID, String category) throws RemoteException
     {
+        Trips trip = new Trips();
+        DB db = new DB();
+        db.getTripbyCategory(category);
+        db.getTripbyID(ID);
+        
         for(int i = 0;i<t.size();i++){
             if(t.get(i).getID()== ID){
                 if(t.get(i).getCategory()== "SafariTrips"){
@@ -319,6 +335,9 @@ public class Trips  extends UnicastRemoteObject implements Trips_interface, ROI_
     }
     
 public void remove_trips(int ID) throws RemoteException{
+Trips trip = new Trips ();
+DB db = new DB();
+db.deleteTrip(trip);
 
     for(int i = 0; i<t.size(); i++){
          if(t.get(i).getID()== ID){
@@ -346,7 +365,11 @@ public void remove_trips(int ID) throws RemoteException{
 }
 
     @Override
-    public void ViewAllTrips() {
+    public void ViewAllTrips() throws RemoteException{
+        
+       DB db = new DB();
+       db.ViewAllTrips();
+        
        for(int i = 0; i<t.size(); i++){
 System.out.println(t.get(i));
 }
@@ -354,8 +377,16 @@ System.out.println(t.get(i));
     }
 
     @Override
-    public void deleteTrip(int ID) {
-   
+    public void deleteTrip(int ID) throws RemoteException{
+   Trips trip;
+        try {
+            trip = new Trips ();
+            DB db = new DB();
+            db.deleteTrip(trip);
+        } catch (RemoteException ex) {
+            Logger.getLogger(Trips.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
 
         try {
          Trips   ts = new Trips();

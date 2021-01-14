@@ -99,7 +99,12 @@ public class user extends UnicastRemoteObject implements user_interface
 
     @Override
     public void editprofile(String type,String username,String name, String email, int phone, String password, int licensenumber) throws RemoteException {
- account ac=new account();
+        user use = new user();
+        
+            DB db= new DB();
+            db.editprofile(use);
+        
+        account ac=new account();
  
  if(ac.getUsername()==username && ac.getPassword()==password){
        
@@ -172,7 +177,11 @@ public class user extends UnicastRemoteObject implements user_interface
 
     @Override
     public void signup(String type,String username, String name, String email, int phone, String password,int licensenumber) throws RemoteException {
-                   
+            
+        user use = new user();
+        DB db = new DB();
+        db.signup(use);
+        
 //        Client c=new Client();
 //        Contractor cont=new Contractor();
 //        Advertiser adv=new Advertiser();
@@ -253,6 +262,9 @@ public class user extends UnicastRemoteObject implements user_interface
     @Override
     public void deleteUser(int id) throws RemoteException {
        user us =new user ();
+       DB db = new DB();
+       db.removeuser(us);
+       
         if(us.getId()==id){
         u.remove(us);
         }
@@ -260,6 +272,10 @@ public class user extends UnicastRemoteObject implements user_interface
 
     @Override
     public String viewuser() throws RemoteException {
+        
+        DB db = new DB();
+        db.viewAllusers();
+        
         for(int i = 0; i<u.size(); i++){
             System.out.println(u.get(i));
 }
