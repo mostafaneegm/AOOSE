@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Lenovo
+ * @author hp
  */
 public interface Trips_interface extends Remote {
      public void post_trips(String category, int price, String location, String view, int reservation_number     
@@ -20,4 +20,11 @@ public interface Trips_interface extends Remote {
     public void edit_trips(int ID, int price, String location, String view, int reservation_number) throws RemoteException;
      public void ViewAllTrips ();
        public void deleteTrip (int ID);
+       
+       
+    public  ArrayList<String> view_safari()throws RemoteException;
+    public  ArrayList<String> view_religious()throws RemoteException;
+    public  ArrayList<String> view_culture()throws RemoteException;
+    public  ArrayList<String> view_boat()throws RemoteException;
+   
 }
