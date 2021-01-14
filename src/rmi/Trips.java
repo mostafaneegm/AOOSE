@@ -369,5 +369,48 @@ t.remove(ID);
 
     }
 
+  
+    @Override
+    public ArrayList<String> view_safari() throws RemoteException {
+     ArrayList <SafariTrips> s=new ArrayList();
+     for(int i=0; i<s.size();i++){
+     System.out.print(s.get(i));
+     }
+        System.out.print("not trips valiable");
+        return null;
+    }
+
+    @Override
+    public ArrayList<String> view_religious() throws RemoteException {
+       ArrayList <ReligiousTrips> r=new ArrayList();
+     for(int i=0; i<r.size();i++){
+     System.out.print(r.get(i));
+     
+     }
+        System.out.print("not trips valiable");
+        return null;
+    }
+    
+
+    @Override
+    public ArrayList<String> view_culture() throws RemoteException {
+        ArrayList <CultureTrips> c=new ArrayList();
+     for(int i=0; i<c.size();i++){
+     System.out.print(c.get(i));
+     }
+        System.out.print("not trips valiable");
+        return null;
+    }
+
+    @Override
+    public ArrayList<String> view_boat() throws RemoteException {
+          ArrayList <BoatTrips> b=new ArrayList();
+     for(int i=0; i<b.size();i++){
+     System.out.print(b.get(i));
+     }
+        System.out.print("not trips valiable");
+        return null;
+    }
+
 
 }
