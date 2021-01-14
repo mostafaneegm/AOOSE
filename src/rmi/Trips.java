@@ -18,7 +18,7 @@ import java.util.logging.Logger;
  *
  * @author Lenovo
  */
-public class Trips  extends UnicastRemoteObject implements Trips_interface  
+public class Trips  extends UnicastRemoteObject implements Trips_interface, ROI_trips  
 {   
     int ID;
     String category;
@@ -410,6 +410,19 @@ t.remove(ID);
      }
         System.out.print("not trips valiable");
         return null;
+    }
+
+    @Override
+    public int getTripPrice()throws RemoteException {
+       Trips trip=new Trips();
+    
+       return trip.getPrice();
+    }
+
+    @Override
+    public String getTripLocation()throws RemoteException {
+     Trips trip=new Trips();
+     return trip.getLocation();
     }
 
 

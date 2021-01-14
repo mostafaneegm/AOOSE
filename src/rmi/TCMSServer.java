@@ -29,6 +29,7 @@ public class TCMSServer {
         SafariTripInterface safari=new SafariTrips();
         Transportation_interface trans= new Transportation();
         Trips_interface trips= new Trips();
+        user_interface user=new user();
         
           Registry registry = LocateRegistry.createRegistry(1099);
           
@@ -38,7 +39,7 @@ public class TCMSServer {
        registry.bind("safa", safari);
        registry.bind("transaction", trans);
        registry.bind("trip", trips);
-       
+       registry.bind("user", user);
        
             System.out.println("My classes are ready...");  
         

@@ -259,9 +259,10 @@ public class user extends UnicastRemoteObject implements user_interface
     }
 
     @Override
-    public void viewuser() throws RemoteException {
+    public String viewuser() throws RemoteException {
         for(int i = 0; i<u.size(); i++){
             System.out.println(u.get(i));
 }
+        return null;
     }
 }
