@@ -110,7 +110,7 @@ public class Trips  extends UnicastRemoteObject implements Trips_interface, ROI_
     }
 
     @Override
-    public void post_trips(String category, int price, String location,  int reservation_number     
+    public void post_trips(String category,int ID, int price, String location, int reservation_number      
     ) throws RemoteException {
         SafariTrips st = new SafariTrips();
         ReligiousTrips rt = new ReligiousTrips();
@@ -189,7 +189,7 @@ public class Trips  extends UnicastRemoteObject implements Trips_interface, ROI_
     }
 
     @Override
-    public void edit_trips(int ID, int price, String location,  int reservation_number) throws RemoteException {
+    public void edit_trips(int ID, int price, String location,  int reservation_number, String category) throws RemoteException {
         for(int i = 0;i<t.size();i++){
             if(t.get(i).getID()== ID){
                 if(t.get(i).getCategory()== "SafariTrips"){

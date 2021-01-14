@@ -14,10 +14,10 @@ import java.util.ArrayList;
  * @author hp
  */
 public interface Trips_interface extends Remote {
-     public void post_trips(String category, int price, String location, int reservation_number     
+     public void post_trips(String category,int ID, int price, String location, int reservation_number     
     )throws RemoteException;
 
-    public void edit_trips(int ID, int price, String location, int reservation_number) throws RemoteException;
+    public void edit_trips(int ID, int price, String location, int reservation_number,String category) throws RemoteException;
      public void ViewAllTrips ();
        public void deleteTrip (int ID);
        
