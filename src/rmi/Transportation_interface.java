@@ -13,7 +13,7 @@ import java.rmi.Remote;
  */
 public interface Transportation_interface extends Remote{
     public void viewTransportation();
-    public void addtransporter(int id,String type, String location, int duration);
+    public void addtransportation(int id,String type, String location, int duration);
     public void deleteTransportaion(int id);
     public void updateTransportation(int id,String type, String location, int duration);
 }

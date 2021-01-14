@@ -46,14 +46,9 @@ public class proxy extends UnicastRemoteObject implements SafariTripInterface{
         st = new SafariTrips();
        
     }
-        st.edit_trips(ID, price, location, view, reservation_number);
+        st.edit_trips(ID, price, location, reservation_number);
        
         System.out.println("updated");
-    }
-        st.edit_trips(ID, price, location, view, reservation_number);
-        
-        System.out.println("updated");
-    
     }
     
   
